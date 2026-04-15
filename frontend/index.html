@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio — UI/Frontend Designer</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!--
+  ============================================================
+  FONT IMPORTS
+  — Orbitron     : Futuristic display font for headings
+  — Syne         : Clean, editorial body font
+  ============================================================
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Syne:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+
+  <!-- ============================================================
+       CANVAS — Star field background (rendered by script.js)
+  ============================================================ -->
+  <canvas id="starfield"></canvas>
+
+
+  <!-- ============================================================
+       NAVIGATION BAR
+       — Sticky top bar with logo + nav links
+       — Active state is toggled by script.js on scroll
+  ============================================================ -->
+  <nav id="navbar">
+    <div class="nav-logo">
+      <span class="logo-bracket">&lt;</span>MICA<span class="logo-bracket">/&gt;</span>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home"    class="nav-link active">Home</a></li>
+      <li><a href="#about"   class="nav-link">About</a></li>
+      <li><a href="#resume"  class="nav-link">Resume</a></li>
+      <li><a href="#projects"class="nav-link">Projects</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- ============================================================
+       SECTION 1 — HOME / HERO
+       — Full-viewport landing section
+       — Edit: name, role, and short intro text below
+  ============================================================ -->
+  <section id="home" class="section hero-section">
+    <div class="hero-content fade-in">
+
+      <!-- ── Edit your photo: replace 'assets/images/photo.jpg' ── -->
+      <div class="hero-photo-wrapper">
+        <div class="hero-photo-ring"></div>
+        <img
+          src="assets/capy.png"
+          alt="Profile Photo"
+          class="hero-photo"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <!-- Placeholder shown if image is missing -->
+        <div class="hero-photo-placeholder">
+          <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="40" cy="30" r="18" fill="var(--accent-cyan)" opacity="0.5"/>
+            <ellipse cx="40" cy="68" rx="28" ry="16" fill="var(--accent-cyan)" opacity="0.3"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- ── Edit: your name, title, intro ── -->
+      <div class="hero-text">
+        <p class="hero-greeting">Hello, I'm</p>
+        <h1 class="hero-name">Michaella Francine R. Crema</h1>
+        <h2 class="hero-role">
+          <span class="typed-text" id="typedText"></span><span class="cursor">|</span>
+        </h2>
+        <p class="hero-intro">
+          I’m a UI/Frontend designer passionate about creating clean and accessible designs.
+          Passionate about creating user experiences that look good and feel easy to use.
+        </p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">View My Work</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Decorative floating orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator">
+      <div class="scroll-dot"></div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 2 — ABOUT ME
+       — Background, skills, and what you're learning
+       — Edit: bio text, skills list, learning list
+  ============================================================ -->
+  <section id="about" class="section about-section">
+    <div class="section-inner">
+
+      <div class="section-header fade-in">
+        <span class="section-tag">// about</span>
+        <h2 class="section-title">About Me</h2>
+      </div>
+
+      <div class="about-grid">
+
+        <!-- ── Edit: your background / bio ── -->
+        <div class="about-bio fade-in">
+          <h3>Background</h3>
+          <p>
+            I’m a UI/Frontend design student from Ilocos Norte, with a passion for creating
+            clean and user-friendly interfaces.
+            I enjoy learning new tools, and creating simple, clean, and user-friendly interfaces.
+          </p>
+          <p>
+            I’m still learning and improving my skills in design and front-end development, 
+            and I’m excited to gain real-world experience and work with a team.
+          </p>
+        </div>
+
+        <!-- ── Edit: your skills ── -->
+        <div class="about-skills fade-in">
+          <h3>Technical Skills </h3>
+          <div class="skill-tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Figma</span>
+            <span class="tag">UI Design</span>
+            <span class="tag">Canva</span>
+          </div>
+
+      
+          <div class="about-skills fade-in">
+          <h3>Soft Skills </h3>
+          <div class="skill-tags">
+            <span class="tag">Problem Solving</span>
+            <span class="tag">Team Collaboration</span>
+            <span class="tag">Adapdability</span>
+            <span class="tag">Leadership</span>
+            <span class="tag">Fast Learner</span>
+            <span class="tag">Willingness to learn</span>
+            <span class="tag">Time Management</span>
+          </div>
+
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 3 — RESUME
+       — Education, Skills, Seminars, and PDF download button
+       — Edit: each .resume-item block below
+  ============================================================ -->
+  <section id="resume" class="section resume-section">
+    <div class="section-inner">
+
+      <div class="section-header fade-in">
+        <span class="section-tag">// resume</span>
+        <h2 class="section-title">Resume</h2>
+      </div>
+
+      <div class="resume-grid">
+
+        <!-- ── EDUCATION ── Edit the items below ── -->
+        <div class="resume-column fade-in">
+          <h3 class="resume-column-title">
+            <span class="resume-icon">🎓</span> Education
+          </h3>
+          <div class="resume-item">
+            <div class="resume-item-header">
+              <strong>Mariano Marcos State University</strong>
+              <span class="resume-date">2023 – Present</span>
+            </div>
+            <p class="resume-school">Bachelor of Science in Computer Science</p>
+            </p>
+          </div>
+          <div class="resume-item">
+            <div class="resume-item-header">
+              <strong>Ilocos Norte College of Arts and Trades</strong>
+              <span class="resume-date">2011 - 2023</span>
+            </div>
+          </div>
+
+          <div class="resume-item">
+            <div class="resume-item-header">
+              <strong>Salsalamagui Elementary School</strong>
+              <span class="resume-date">2011 - 2021</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── SKILLS ── Edit the skill bars below ── -->
+        <div class="resume-column fade-in">
+          <h3 class="resume-column-title">
+            <span class="resume-icon">⚡</span> Technical Skills
+          </h3>
+
+          <!-- Skill name + percentage — edit the data-level value (0–100) -->
+          <div class="skill-bar-group">
+            <div class="skill-bar-label">
+              <span>HTML</span><span>80%</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-level="80"></div>
+            </div>
+          </div>
+
+          <div class="skill-bar-group">
+            <div class="skill-bar-label">
+              <span>CSS</span><span>70%</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-level="70"></div>
+            </div>
+          </div>
+
+          <div class="skill-bar-group">
+            <div class="skill-bar-label">
+              <span>JavaScript</span><span>50%</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-level="50"></div>
+            </div>
+          </div>
+
+          <div class="skill-bar-group">
+            <div class="skill-bar-label">
+              <span>Canva</span><span>90%</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-level="90"></div>
+            </div>
+          </div>
+
+          <div class="skill-bar-group">
+            <div class="skill-bar-label">
+              <span>Figma / UI Design</span><span>80%</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-level="80"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── SEMINARS / TRAININGS ── Edit the items below ── -->
+        <div class="resume-column resume-full fade-in">
+          <h3 class="resume-column-title">
+            <span class="resume-icon">📌</span> Seminars &amp; Trainings
+          </h3>
+          <div class="seminars-grid">
+
+            <!-- Edit each seminar card -->
+            <div class="seminar-card">
+            <div class="seminars-grid"></div>
+              <span class="seminar-year">2024</span>
+              <strong>OCC Leadership Training Seminar </strong>
+              <p>Participated in a leadership training seminar that helped develop communication, teamwork, and leadership skills.</p>
+            </div>
+
+            <div class="seminar-card">
+            <div class="seminars-grid"></div>
+              <span class="seminar-year">2025</span>
+              <strong>Institutional Re-echo Training on Intellectual Property Master Class (IPMC)</strong>
+              <p>Joined an Institutional Re-echo Training on Intellectual Property, gaining knowledge about copyrights, trademarks, and the importance of protecting ideas.</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div><!-- /resume-grid -->
+
+      <!-- ── Download Button — replace 'assets/resume.pdf' with your actual file ── -->
+      <div class="resume-download fade-in">
+        <a href="assets/CREMA_MICHAELLA_FRANCINE-RESUME.pdf" download class="btn btn-primary btn-lg">
+          ↓ &nbsp; Download Resume (PDF)
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 4 — PROJECTS
+       — UI/Frontend design showcase cards
+       — Edit: each .project-card below
+  ============================================================ -->
+  <section id="projects" class="section projects-section">
+    <div class="section-inner">
+
+      <div class="section-header fade-in">
+        <span class="section-tag">// projects</span>
+        <h2 class="section-title">My Projects</h2>
+        <p class="section-subtitle">A selection of my UI &amp; Frontend design work</p>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- ── PROJECT CARD 1 ── Edit title, description, tags, and preview color ── -->
+        <article class="project-card fade-in">
+          <div class="project-preview" style="--card-color: #00d4ff;">
+            <div class="preview-mockup">
+              <div class="mockup-bar"></div>
+              <div class="mockup-content">
+                <div class="mockup-line w-80"></div>
+                <div class="mockup-line w-60"></div>
+                <div class="mockup-block"></div>
+                <div class="mockup-line w-40"></div>
+              </div>
+            </div>
+            <span class="project-number">01</span>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">Ilocos Norte Accessibility Finder</h3>
+            <p class="project-desc">
+              Developed a web application helping users with mobility or sensory concerns locate
+              accessible venues across Ilocos Norte
+            </p>
+            <div class="project-tags">
+              <span>HTML</span> <span>CSS</span> <span>Python</span> <span>Perl</span>
+            </div>
+            <a href="https://github.com/Patrick21-code/ilocos-norte-accessibility-finder.git" target="_blank" class="project-github">View on GitHub</a>
+          </div>
+        </article>
+
+        <!-- ── PROJECT CARD 2 ── -->
+        <article class="project-card fade-in">
+          <div class="project-preview" style="--card-color: #a259ff;">
+            <div class="preview-mockup">
+              <div class="mockup-bar"></div>
+              <div class="mockup-content">
+                <div class="mockup-avatar"></div>
+                <div class="mockup-line w-70"></div>
+                <div class="mockup-line w-50"></div>
+                <div class="mockup-line w-80"></div>
+              </div>
+            </div>
+            <span class="project-number">02</span>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">TrackWeave</h3>
+            <p class="project-desc">
+            TrackWeave maps the relationships between songs, albums, and artists
+            using graph-based natural language processing — surfacing patterns
+            in discographies that no streaming algorithm can reveal.
+            </p>
+            <div class="project-tags">
+              <span>HTML</span><span>CSS</span>
+            </div>
+            <a href="https://github.com/Patrick21-code/trackweaveredone.git" target="_blank" class="project-github">View on GitHub</a>
+          </div>
+        </article>
+        
+
+        <!-- ── PROJECT CARD 3 ── -->
+        <article class="project-card fade-in">
+          <div class="project-preview" style="--card-color: #ff6b6b;">
+            <div class="preview-mockup">
+              <div class="mockup-bar"></div>
+              <div class="mockup-content">
+                <div class="mockup-hero-block"></div>
+                <div class="mockup-line w-70"></div>
+                <div class="mockup-line w-50"></div>
+              </div>
+            </div>
+            <span class="project-number">03</span>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">Student Record System</h3>
+            <p class="project-desc">
+              A comprehensive web application for managing student records with persistent data storage.
+            </p>
+            <div class="project-tags">
+              <span>HTML</span><span>CSS</span><span>JS</span>
+            </div>
+            <a href="https://github.com/kxrtzy/Final_Project_webdev.git" target="_blank" class="project-github">View on GitHub</a>
+          </div>
+        </article>
+
+
+        <!-- ── PROJECT CARD 4 ── -->
+        <article class="project-card fade-in">
+          <div class="project-preview" style="--card-color: #00ffb3;">
+            <div class="preview-mockup">
+              <div class="mockup-bar"></div>
+              <div class="mockup-content">
+                <div class="mockup-cards-row">
+                  <div class="mockup-mini-card"></div>
+                  <div class="mockup-mini-card"></div>
+                  <div class="mockup-mini-card"></div>
+                </div>
+                <div class="mockup-line w-60"></div>
+                <div class="mockup-line w-40"></div>
+              </div>
+            </div>
+            <span class="project-number">04</span>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">Recipe Organizer</h3>
+            <p class="project-desc">
+              A Nutrition Analysis and Recipe Management System that analyzes recipes using an API,
+              provides detailed nutrition and category labels, and allows users to organize, search,
+              and view recipes with complete nutritional information.
+            </p>
+            <div class="project-tags">
+              <span>Figma</span><span>UI Design</span><span>Prototyping</span>
+            </div>
+            <a href="https://github.com/lukexodus/recipeorganizer.git" target="_blank" class="project-github">View on GitHub</a>
+          </div>
+        </article>    
+
+        
+      </div><!-- /projects-grid -->
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 5 — CONTACT
+       — Email, social links, and contact form
+       — Edit: email address, social URLs, form labels
+  ============================================================ -->
+  <section id="contact" class="section contact-section">
+    <div class="section-inner">
+
+      <div class="section-header fade-in">
+        <span class="section-tag">// contact</span>
+        <h2 class="section-title">CONTACT</h2>
+      </div>
+
+      <div class="contact-grid">
+
+        <p class="contact-section">
+        I’m open to opportunities, collaboration, and learning experiences. Feel free
+        to reach out through email or my social links.
+        </p>
+
+        <!-- ── Edit: email and social links ── -->
+        <div class="contact-info fade-in">
+          <div class="contact-detail">
+            <span class="contact-icon">✉</span>
+            <div>
+              <p class="contact-label">Email</p>
+              <!-- Edit your email address here -->
+              <a href="#" onclick="copyEmail(event)" class="contact-link">cremamichaellafrancine07@gmail.com  </a>
+            </div>
+          </div>
+          </div>
+
+          <div class="social-links">
+            <!-- Edit: replace '#' with your actual profile URLs -->
+            <a href="https://github.com/myx07?tab=overview&from=2026-04-01&to=2026-04-15" class="social-btn" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.25.8-.55v-2.05c-3.2.7-3.9-1.35-3.9-1.35-.5-1.3-1.25-1.65-1.25-1.65-1-.7.1-.65.1-.65 1.1.05 1.7 1.1 1.7 1.1.95 1.65 2.5 1.15 3.15.9.1-.7.35-1.15.65-1.4-2.55-.3-5.2-1.3-5.2-5.75 0-1.25.45-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.1.75.8 1.2 1.85 1.2 3.1 0 4.45-2.65 5.45-5.2 5.75.4.35.75 1.05.75 2.1v3.1c0 .3.2.65.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/>
+              </svg>
+              GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/michaella-francine-crema-6925b1403/" class="social-btn" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.35-1.85 3.59 0 4.25 2.36 4.25 5.43v6.31zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM3.56 20.45h3.55V9H3.56v11.45zM22.22 0H1.77C.8 0 0 .77 0 1.73v20.54C0 23.23.8 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/>
+              </svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+
+      </div><!-- /contact-grid -->
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FOOTER
+       — Edit: your name and the current year
+  ============================================================ -->
+  <footer class="site-footer">
+    <p>
+      Designed &amp; Built by <span class="footer-name">Michaella</span>
+      <p class="copyright">
+        © 2026 Michaella Francine R. Crema. All rights reserved
+      </p>
+      &nbsp;·&nbsp;
+      <span id="footerYear"></span>
+    </p>
+  </footer>
+
+
+  <!-- ============================================================
+       SCRIPT
+  ============================================================ -->
+  <script src="script.js"></script>
+</body>
+</html>
